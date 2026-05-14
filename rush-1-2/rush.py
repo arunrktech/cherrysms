@@ -5,17 +5,15 @@ def rush(x, y):
         print("Invalid size", file=sys.stderr)
         return
 
-    top    = "/" + "*" * (x - 2) + "\\"
-    bottom = "\\" + "*" * (x - 2) + "/"
-    middle = "*" + " " * (x - 2) + "*"
-    full   = "*" * x
+    print(f"When calling rush({x}, {y}):")
 
     for row in range(y):
-        if y == 1:
-            print(full)
-        elif row == 0:
-            print(top)
-        elif row == y - 1:
-            print(bottom)
+        if x == 1 or y == 1:
+            print("*" * x)
         else:
-            print(middle)
+            if row == 0:
+                print("/" + "*" * (x - 2) + "\\")
+            elif row == y - 1:
+                print("\\" + "*" * (x - 2) + "/")
+            else:
+                print("*" + " " * (x - 2) + "*")
